@@ -1,4 +1,7 @@
 package base;
+
+import java.util.Scanner;
+
 /*
 Exercise 4 - Mad Lib
 Mad libs are a simple game where you create a story template with blanks for words.
@@ -23,9 +26,50 @@ Implement a branching story, where the answers to questions determine how the st
 */
 public class App 
 {
+    static Scanner in = new Scanner(System.in);
 
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        App myApp = new App();
+
+        String noun = myApp.readnoun();
+        String verb = myApp.readverb();
+        String adjective = myApp.readadj();
+        String adverb = myApp.readadv();
+
+        myApp.readmadlib(noun, verb, adjective, adverb);
+    }
+
+    public void readmadlib(String noun, String verb, String adjective, String adverb)
+    {
+        System.out.println("Do you " + verb + " your " + adjective + " " + noun + " " + adverb + "? That's hilarious!");
+    }
+
+    public String readadv()
+    {
+        System.out.print("Enter an adverb: ");
+        String adverb = in.nextLine();
+        return adverb;
+    }
+
+    public String readadj()
+    {
+        System.out.print("Enter an adjective: ");
+        String adjective = in.nextLine();
+        return adjective;
+    }
+
+    public String readverb()
+    {
+        System.out.print("Enter a verb: ");
+        String verb = in.nextLine();
+        return verb;
+    }
+
+    public String readnoun()
+    {
+        System.out.print("Enter a noun: ");
+        String noun = in.nextLine();
+        return noun;
     }
 }
